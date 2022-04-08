@@ -10,6 +10,7 @@ void swap(int* a, int* b){
 }
 
 void heapfy(int* arr, int index, int len){
+    if (len == 1) return;
     int min;
     if (arr[index*2-1] <= arr[index*2]){
         if (index*2-1 <= len-1)
@@ -33,21 +34,20 @@ void heapfy(int* arr, int index, int len){
 }
 
 void heapsort(int* arr, int len){
-    for (int i = 1; i <= len; i++){
-        swap(&arr[0], &arr[len]);
-        len--;
-        heapfy(arr, (len+1)/2, len);
+    for (int i = len; i >= 2; i--){
+        swap(&arr[0], &arr[i-1]);
+        heapfy(arr, 1, i-1);
     }
 }
 
 int main(int argc, char* argv[]){
-    //int len = atoi(argv[1]);
-	//int* arr = malloc(sizeof(int) * len);
-    int arr[] = {85, 83, 77, 15, 50};
-    int len = sizeof(arr) / sizeof(arr[0]);
+    int len = atoi(argv[1]);
+	int* arr = malloc(sizeof(int) * len);
+    //int arr[] = {85, 83, 77, 15, 50};
+    //int len = sizeof(arr) / sizeof(arr[0]);
     srand(time(0));
     for (int i = 0; i < len; i++){
-        //arr[i] = rand() % 100;
+        arr[i] = rand() % 100;
         printf("%d ", arr[i]);
     }
     putchar('\n');
