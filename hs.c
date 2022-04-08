@@ -10,10 +10,12 @@ void swap(int* a, int* b){
 }
 
 void heapfy(int* arr, int index, int len){
+    // adjust the tree to min-heap heap
     if (len == 1) return;
     int min;
     if (arr[index*2-1] <= arr[index*2]){
-        if (index*2-1 <= len-1)
+        // ugly code, maybe fix someday
+        if (index*2-1 <= len-1) // to make sure no access to the sorted field, when sorting
             min = index*2 - 1;
         else
             min = index - 1;
@@ -27,6 +29,7 @@ void heapfy(int* arr, int index, int len){
     if (arr[min] < arr[index-1]) 
         swap(&arr[min], &arr[index-1]);
     for (int i = index+1; i <= len; i++){
+        // adjust children, 'till excess array's range (len)
         if (i*2 > len || i*2+1 > len) 
             break;
         heapfy(arr, i, len);
@@ -36,6 +39,7 @@ void heapfy(int* arr, int index, int len){
 void heapsort(int* arr, int len){
     for (int i = len; i >= 2; i--){
         swap(&arr[0], &arr[i-1]);
+        // adjust from root
         heapfy(arr, 1, i-1);
     }
 }
@@ -60,9 +64,8 @@ int main(int argc, char* argv[]){
     printf("\n-\nheapfy:\n");
     printTree(arr, len);
 
-    printf("\n-\nheapsort:\n");
+    printf("\n-\nheapsort:\n\n");
     heapsort(arr, len);
-    putchar('\n');
     printTree(arr, len);
 }
 
