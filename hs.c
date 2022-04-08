@@ -43,6 +43,7 @@ void heapsort(int* arr, int len){
 int main(int argc, char* argv[]){
     int len = atoi(argv[1]);
 	int* arr = malloc(sizeof(int) * len);
+    fputs("\ninitial: ", stdout);
     //int arr[] = {85, 83, 77, 15, 50};
     //int len = sizeof(arr) / sizeof(arr[0]);
     srand(time(0));
@@ -50,7 +51,7 @@ int main(int argc, char* argv[]){
         arr[i] = rand() % 100;
         printf("%d ", arr[i]);
     }
-    putchar('\n');
+    fputs("\nbuild complete binary tree:\n\n", stdout);
     printTree(arr, len);
 
     for (int i = len/2; i >= 1; i--){
@@ -59,7 +60,7 @@ int main(int argc, char* argv[]){
     printf("\n-\nheapfy:\n");
     printTree(arr, len);
 
-    printf("\n-\nafter heapsort:\n");
+    printf("\n-\nheapsort:\n");
     heapsort(arr, len);
     putchar('\n');
     printTree(arr, len);
