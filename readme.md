@@ -1,12 +1,12 @@
 ### heapsort
 
 #### how to use:
-''' bash
+```bash
 gcc hs.c -lm -g && ./a.out 10   
-'''
+```
 
 ##### sample output: 
-''' bash
+```bash
 initial: 13 92 99 50 96 83 90 9 74 87                                      
 build complete binary tree:                                                
                                                                            
@@ -29,4 +29,4 @@ heapsort:
                  96------------------------------------92
         90------------------87                 83------------------74
    50----------13       9
-'''
+```
