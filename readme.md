@@ -6,7 +6,7 @@ gcc hs.c -lm -g && ./a.out 10
 ```
 
 ##### sample output: 
-```bash
+```
 initial: 13 92 99 50 96 83 90 9 74 87                                      
 build complete binary tree:                                                
                                                                            
